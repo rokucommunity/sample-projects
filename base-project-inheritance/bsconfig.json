@@ -1,0 +1,11 @@
+{
+    "host": "${promptForHost}",
+    "rootDir": "main-project",
+    "password": "${promptForPassword}",
+    "files": [
+        "manifest",
+        "source/**/*.*",
+        "components/**/*.*",
+        "images/**/*.*"
+    ]
+}
