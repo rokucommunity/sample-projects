@@ -17,20 +17,22 @@ sub updateList()
   end if
   m.subRedditRequest = createObject("roSGNode", "GetSubReddit")
   m.subRedditRequest.subReddit = "/r/Roku"
-  m.subRedditRequest.observeField("content", "onSubRedditRequestContentChange")
+  m.subRedditRequest.observeField("state", "onSubRedditRequestContentChange")
   m.subRedditRequest.control = "RUN"
 end sub
 
 sub onSubRedditRequestContentChange(event as Object)
-  content = event.getData()
-  m.list.content = content
-  m.list.setFocus(true)
+  state = lCase(event.getData())
+  if state = "stop" OR state = "done" then
+    content = event.getRoSGNode().content
+    m.list.content = content
+    m.list.setFocus(true)
 
-  if m.progress <> Invalid then
-    m.progress.close = true
-    m.progress = Invalid
+    if m.progress <> Invalid then
+      m.progress.close = true
+      m.progress = Invalid
+    end if
   end if
-
 end sub
 
 sub onItemSelected(event as Object)
@@ -40,7 +42,6 @@ sub onItemSelected(event as Object)
   dialog.title = post.title
   dialog.message = post.description
   m.top.dialog = dialog
-  print post
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
