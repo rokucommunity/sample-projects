@@ -1,4 +1,5 @@
 sub init()
+  m.video = m.top.FindNode("video")
   m.list = m.top.FindNode("list")
   m.list.observeField("itemSelected", "onItemSelected")
   updateList()
@@ -16,7 +17,7 @@ sub updateList()
     m.subRedditRequest.unobserveField("content")
   end if
   m.subRedditRequest = createObject("roSGNode", "GetSubReddit")
-  m.subRedditRequest.subReddit = "/r/Roku"
+  m.subRedditRequest.subReddit = "/r/FastWorkers"
   m.subRedditRequest.observeField("state", "onSubRedditRequestContentChange")
   m.subRedditRequest.control = "RUN"
 end sub
@@ -37,11 +38,11 @@ end sub
 
 sub onItemSelected(event as Object)
   post = event.getRoSGNode().content.getChild(event.getData())
+  print post
 
-  dialog = createObject("roSGNode", "Dialog")
-  dialog.title = post.title
-  dialog.message = post.description
-  m.top.dialog = dialog
+  m.video.content = post
+  m.video.control = "play"
+  m.video.visible = true
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -49,7 +50,14 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
   if NOT press then return handled
 
   if key = "back" then
-    m.top.appExit = true
+    if m.video.visible then
+      m.video.control = "stop"
+      m.video.visible = false
+      m.list.setFocus(true)
+      handled = true
+    else
+      m.top.appExit = true
+    end if
   else if key = "replay" then
     updateList()
   end if

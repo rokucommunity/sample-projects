@@ -19,7 +19,7 @@ sub onItemContentChange()
     m.labelGroup.translation = [0, 0]
     m.maxLabelWidth = m.maxLabelWidth
   else
-    m.imagePoster.uri = m.top.itemContent.SDPOSTERURL
+    m.imagePoster.uri = m.top.itemContent.SDPOSTERURL + "?width=" + m.imagePoster.width.toStr() + "&crop=smart&auto=webp"
     m.imagePoster.visible = true
     m.labelGroup.translation = [m.imagePoster.width + 20, 0]
     m.top.maxLabelWidth = m.maxWidth - (m.imagePoster.width + 20 + 40)

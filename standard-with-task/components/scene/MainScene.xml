@@ -8,5 +8,6 @@
 
   <children>
     <MarkupList id="list" itemComponentName="ListItem" itemSize="[1900, 250]" itemSpacing="[0, 20]" drawFocusFeedback="false" translation="[20, 20]" wrapDividerBitmapUri="" />
+    <Video id="video" visible="false" />
   </children>
 </component>
