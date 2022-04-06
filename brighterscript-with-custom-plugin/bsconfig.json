@@ -1,0 +1,9 @@
+{
+    "rootDir": "src",
+    "plugins": [
+        "./bsc-custom-plugin.ts"
+    ],
+    "require": [
+        "ts-node/register"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "brighterscript-with-custom-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "brighterscript": "^0.47.1",
+    "ts-node": "^10.7.0"
+  }
+}
