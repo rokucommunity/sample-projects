@@ -1,0 +1,10 @@
+# Channel Details
+title=app
+major_version=1
+minor_version=0
+build_version=0
+splash_color=#808080
+splash_min_time=0
+ui_resolutions=fhd
+bs_const=DEBUG=true
+complib_url=http://192.168.1.22:8080/complib.zip

@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "brightscript",
+            "request": "launch",
+            "name": "Debug",
+            "rootDir": "${workspaceFolder}/app",
+            "stopOnEntry": false,
+            "files": [
+                "**/*"
+            ],
+            "componentLibrariesPort": 8080,
+            "componentLibraries": [
+                {
+                    "rootDir": "${workspaceFolder}/complib/",
+                    "outFile": "complib.zip",
+                    "files": [
+                        "**/*"
+                    ]
+                }
+            ]
+        }
+    ]
+}

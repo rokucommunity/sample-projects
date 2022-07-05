@@ -1,0 +1,8 @@
+titleSample Complib
+subtitle=A sample component library
+major_version=1
+minor_version=0
+build_version=0
+sg_component_libs_provided=SampleComplib
+ui_resolutions=fhd
+
