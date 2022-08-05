@@ -2,6 +2,7 @@
 The goal of this sample is to show how easy it is to debug a component library project using vscode.
 
 ## Instructions
+These instructions assume you've already installed and familiar with the [BrightScript Language](https://marketplace.visualstudio.com/items?itemName=RokuCommunity.brightscript) extension for VSCode.
 1. Open the root of this folder in vscode.
 ![image](https://user-images.githubusercontent.com/2544493/183099535-f26ffa58-eb2c-4c50-9378-8583754ca44a.png)
 
