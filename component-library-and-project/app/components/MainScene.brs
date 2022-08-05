@@ -25,7 +25,7 @@ sub onComponentLibraryLoadStatusChange(event as object)
         'there was an error loading the complib
         m.dialog = createObject("roSGNode", "Dialog")
         'show a popup explaining that the complib failed to load
-        dialog.update({
+        m.dialog.update({
             title: "Error!",
             message: "Failed to load component library"
         })
