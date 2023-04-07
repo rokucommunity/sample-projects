@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene">
+  <script type="text/brightscript" uri="MainScene.brs" />
+
+  <children>
+    <Poster id="gradientPoster" translation="[0,0]" width="1920" height="1080"/>
+  </children>
+</component>
