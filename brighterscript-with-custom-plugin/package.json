@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "brighterscript": "^0.47.1",
+    "brighterscript": "^0.65.2",
     "ts-node": "^10.7.0"
   }
 }
