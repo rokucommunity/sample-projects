@@ -14,11 +14,11 @@ sub Main(inputArguments as object)
     if msgType = "roSGScreenEvent" then
       if msg.isScreenClosed() then
         return
-      else if msgType = "roSGNodeEvent" then
-        field = msg.getField()
-        if field = "appExit" then
-          return
-        end if
+      end if
+    else if msgType = "roSGNodeEvent" then
+      field = msg.getField()
+      if field = "appExit" then
+        return
       end if
     end if
   end while
