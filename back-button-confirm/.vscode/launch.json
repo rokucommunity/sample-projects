@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "brightscript",
+            "request": "launch",
+            "name": "BrightScript Debug: Launch",
+            "rootDir": "${workspaceFolder}",
+            "enableDebugProtocol": true,
+            "host": "192.168.1.33"
+        }
+    ]
+}
