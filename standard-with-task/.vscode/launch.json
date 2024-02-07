@@ -5,7 +5,10 @@
             "type": "brightscript",
             "request": "launch",
             "name": "BrightScript Debug: Launch",
-            "rootDir": "${workspaceFolder}"
+            "rootDir": "${workspaceFolder}",
+            "host": "bryan",
+            "password": "ahov",
+            "injectRdbOnDeviceComponent": true
         }
     ]
 }
