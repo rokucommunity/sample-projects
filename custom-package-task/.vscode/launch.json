@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "brightscript",
+            "request": "launch",
+            "name": "BrightScript Debug: Launch",
+            "rootDir": "${workspaceFolder}",
+            "stagingDir": "${workspaceFolder}/out/staging",
+            "packagePath": "${workspaceFolder}/out/app.zip",
+            //define a custom task that will be used to build the package that we'll upload to the Roku for you. This is defined in ./vscode/tasks.json
+            "packageTask": "create-zip"
+        }
+    ]
+}

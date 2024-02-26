@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "create-zip",
+            "command": "npm install && cd ./out/staging && npx bestzip ../app.zip *",
+            "type": "shell",
+            "problemMatcher": []
+        }
+    ]
+}
