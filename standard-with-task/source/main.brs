@@ -3,7 +3,6 @@ sub Main(inputArguments as object)
   m.port = createObject("roMessagePort")
   screen.setMessagePort(m.port)
   scene = screen.CreateScene("MainScene")
-  stop
   screen.show()
   scene.observeField("appExit", m.port)
   scene.setFocus(true)
