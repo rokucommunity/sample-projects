@@ -1,6 +1,6 @@
 sub init()
   m.gradientPoster = m.top.findNode("gradientPoster")
-  m.gradientPoster.uri = GenerateGradient(1920, 1080, &h000000FF, &hFF0000FF, "vertical")
+  m.gradientPoster.uri = GenerateGradient(1920, 1080, &h00FF00FF, &hFF0000FF, "vertical")
 end sub
 
 function GenerateGradient(width as integer, height as integer, startRgba as longinteger, endRgba as longinteger, lineDirection = "vertical")
@@ -19,13 +19,13 @@ function GenerateGradient(width as integer, height as integer, startRgba as long
   redEnd# = (endRgba and &hFF000000&) >> 24
   redStep# = (redEnd# - red#) / numSteps#
 
-  blue# = (startRgba and &h00FF0000&) >> 16
-  blueEnd# = (endRgba and &h00FF0000&) >> 16
-  blueStep# = (blueEnd# - blue#) / numSteps#
-
-  green# = (startRgba and &h0000FF00&) >> 8
-  greenEnd# = (endRgba and &h0000FF00&) >> 8
+  green# = (startRgba and &h00FF0000&) >> 16
+  greenEnd# = (endRgba and &h00FF0000&) >> 16
   greenStep# = (greenEnd# - green#) / numSteps#
+
+  blue# = (startRgba and &h0000FF00&) >> 8
+  blueEnd# = (endRgba and &h0000FF00&) >> 8
+  blueStep# = (blueEnd# - blue#) / numSteps#
 
   alpha# = startRgba and &h000000FF&
   alphaEnd# = endRgba and &h000000FF&
@@ -33,12 +33,12 @@ function GenerateGradient(width as integer, height as integer, startRgba as long
 
   for i = 0 to numSteps#
     red# += redStep#
-    blue# += blueStep#
     green# += greenStep#
+    blue# += blueStep#
     alpha# += alphaStep#
 
     'merge rgb into single int
-    color& = (Int(red#) << 24) + (Int(blue#) << 16) + (Int(green#) << 8) + (Int(alpha#))
+    color& = (Int(red#) << 24) + (Int(green#) << 16) + (Int(blue#) << 8) + (Int(alpha#))
 
     if lineDirection = "vertical" then
       'draw a line at (i, 0) for the full height of the image
