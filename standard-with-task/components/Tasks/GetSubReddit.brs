@@ -37,7 +37,7 @@ sub fetch_good()
   print "Task took: " + timeSpan.TotalMilliseconds().ToStr()
 end sub
 
-sub createRowItems(json as Object, listContent as Object)
+sub createRowItems(json as object, listContent as object)
   for each postDataContainer in json.data.children
     postData = postDataContainer.data
     post = {
@@ -82,25 +82,25 @@ sub createRowItems(json as Object, listContent as Object)
   end for
 end sub
 
-function urlProxy(url as String)
-	#if DEBUG
-		if left(url, 4) <> "http" then return url
-		proxyAddress = "192.168.8.185:8888"
+function urlProxy(url as string)
+  #if DEBUG
+    if left(url, 4) <> "http" then return url
+    proxyAddress = "192.168.8.185:8888"
 
-		if NOT url.inStr(proxyAddress) > -1 then
-			if url <> Invalid AND proxyAddress <> Invalid
-				proxyPrefix = "http://" + proxyAddress + "/;"
-				currentUrl = url
+    if not url.inStr(proxyAddress) > -1 then
+      if url <> invalid and proxyAddress <> invalid
+        proxyPrefix = "http://" + proxyAddress + "/;"
+        currentUrl = url
 
-				if currentUrl.inStr(proxyPrefix) = 0 then
-					return url
-				end if
+        if currentUrl.inStr(proxyPrefix) = 0 then
+          return url
+        end if
 
-				proxyUrl = proxyPrefix + currentUrl
-				return proxyUrl
-			end if
-		end if
-	#endif
+        proxyUrl = proxyPrefix + currentUrl
+        return proxyUrl
+      end if
+    end if
+  #end if
 
-	return url
+  return url
 end function

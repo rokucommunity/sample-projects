@@ -6,14 +6,14 @@ sub init()
 end sub
 
 sub updateList()
-  if m.progress = Invalid then
+  if m.progress = invalid then
     m.progress = createObject("roSGNode", "ProgressDialog")
     m.progress.title = "Loading..."
     m.progress.message = "Did you know:" + chr(10) + "You can use the replay key to update the list!"
     m.top.dialog = m.progress
   end if
 
-  if m.subRedditRequest <> Invalid then
+  if m.subRedditRequest <> invalid then
     m.subRedditRequest.unobserveField("content")
   end if
   m.subRedditRequest = createObject("roSGNode", "GetSubReddit")
@@ -22,21 +22,21 @@ sub updateList()
   m.subRedditRequest.control = "RUN"
 end sub
 
-sub onSubRedditRequestContentChange(event as Object)
+sub onSubRedditRequestContentChange(event as object)
   state = lCase(event.getData())
-  if state = "stop" OR state = "done" then
+  if state = "stop" or state = "done" then
     content = event.getRoSGNode().content
     m.list.content = content
     m.list.setFocus(true)
 
-    if m.progress <> Invalid then
+    if m.progress <> invalid then
       m.progress.close = true
-      m.progress = Invalid
+      m.progress = invalid
     end if
   end if
 end sub
 
-sub onItemSelected(event as Object)
+sub onItemSelected(event as object)
   post = event.getRoSGNode().content.getChild(event.getData())
   print post
 
@@ -45,9 +45,9 @@ sub onItemSelected(event as Object)
   m.video.visible = true
 end sub
 
-function onKeyEvent(key as String, press as Boolean) as Boolean
+function onKeyEvent(key as string, press as boolean) as boolean
   handled = false
-  if NOT press then return handled
+  if not press then return handled
 
   if key = "back" then
     if m.video.visible then
