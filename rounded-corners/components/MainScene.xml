@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="MainScene" extends="Scene">
+  <script type="text/brightscript" uri="MainScene.brs" />
+  <children>
+    <LayoutGroup horizAlignment="center" vertAlignment="center" translation="[960,540]">
+      <Rectangle translation="[400,400]">
+        <Poster uri="pkg:/images/rounded-$$RES$$.9.png" width="450" height="63" />
+        <Label text="I have rounded corners!" color="#000000" height="63" width="450"
+          horizAlign="center" vertAlign="center" />
+      </Rectangle>
+    </LayoutGroup>
+  </children>
+</component>

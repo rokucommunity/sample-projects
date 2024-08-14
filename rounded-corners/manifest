@@ -1,0 +1,10 @@
+# Channel Details
+title=Sample Channel One
+subtitle=A simple sample channel
+major_version=1
+minor_version=0
+build_version=0
+splash_color=#808080
+splash_min_time=0
+ui_resolutions=fhd
+uri_resolution_autosub=$$RES$$,SD,HD,FHD
