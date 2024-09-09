@@ -8,6 +8,10 @@ sub Main(inputArguments as object)
   scene.observeField("appExit", m.port)
   scene.setFocus(true)
 
+  '@type {roSGNodeListItem}
+  item = createRectangle()
+  item.focusPercent = 1.2
+
   while true
     msg = wait(0, m.port)
     msgType = type(msg)
@@ -24,3 +28,10 @@ sub Main(inputArguments as object)
     end if
   end while
 end sub
+
+'@param {roSGNodeLabel} incomingNode
+' @return {roSGNodeListItem}
+function createRectangle(incomingNode)
+  incomingNode.
+  return createObject("roSGNode", "ListItem")
+end function
