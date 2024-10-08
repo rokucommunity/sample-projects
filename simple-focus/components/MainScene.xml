@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="MainScene" extends="Scene">
+  <script type="text/brightscript" uri="MainScene.brs" />
+
+  <interface>
+    <field id="appExit" type="bool" alwaysnotify="true" value="false" />
+  </interface>
+
+  <children>
+    <rectangle id="focusRing" color="0xFF69B4FF" width="310" height="310" translation="[95,95]" />
+
+    <Rectangle id="red" color="0xFF0000FF" width="300" height="300" translation="[100,100]" />
+    <Rectangle id="green" color="0x00FF00FF" width="300" height="300" translation="[500,100]" />
+    <Rectangle id="blue" color="0x000000FF" width="300" height="300" translation="[900,100]" />
+    <Rectangle id="black" color="0x0000FFFF" width="300" height="300" translation="[1300, 100]" />
+  </children>
+</component>
