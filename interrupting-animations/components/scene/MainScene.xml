@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="MainScene" extends="Scene">
+  <script type="text/brightscript" uri="MainScene.brs" />
+
+  <interface>
+    <field id="appExit" type="bool" alwaysnotify="true" value="false" />
+  </interface>
+
+  <children>
+    <Rectangle id="rect0" width="300" height="190" color="0xFF0000FF" translation="[0, 0]" />
+    <Rectangle id="rect1" width="300" height="190" color="0xFF0000FF" translation="[0, 200]" />
+    <Rectangle id="rect2" width="300" height="190" color="0xFF0000FF" translation="[0, 400]" />
+    <Rectangle id="rect3" width="300" height="190" color="0xFF0000FF" translation="[0, 600]" />
+    <Rectangle id="rect4" width="300" height="190" color="0xFF0000FF" translation="[0, 800]" />
+    <Animation id="animation" duration="1">
+      <Vector2DFieldInterpolator id="interpolator0" fieldtointerp="rect0.translation" key="[0,1]" />
+      <Vector2DFieldInterpolator id="interpolator1" fieldtointerp="rect1.translation" key="[0,1]" />
+      <Vector2DFieldInterpolator id="interpolator2" fieldtointerp="rect2.translation" key="[0,1]" />
+      <Vector2DFieldInterpolator id="interpolator3" fieldtointerp="rect3.translation" key="[0,1]" />
+      <Vector2DFieldInterpolator id="interpolator4" fieldtointerp="rect4.translation" key="[0,1]" />
+    </Animation>
+  </children>
+</component>
