@@ -33,12 +33,12 @@ end sub
 
 Function DecodeHtmlEntities(encodedString As String) As String
     decodedString = encodedString
-    decodedString = decodedString.Replace("&amp;", "&")
     decodedString = decodedString.Replace("&lt;", "<")
     decodedString = decodedString.Replace("&gt;", ">")
     decodedString = decodedString.Replace("&quot;", Chr(34)) ' Double quote
     decodedString = decodedString.Replace("&#39;", Chr(39))  ' Single quote/apostrophe
     decodedString = decodedString.Replace("&nbsp;", " ")   ' Non-breaking space
+    decodedString = decodedString.Replace("&amp;", "&")
 
     ' Add more replacements for other common entities as needed
     

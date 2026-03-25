@@ -17,7 +17,7 @@ sub updateList()
     m.subRedditRequest.unobserveField("content")
   end if
   m.subRedditRequest = createObject("roSGNode", "GetSubReddit")
-  m.subRedditRequest.subReddit = "/r/aww" ' "/r/FastWorkers"
+  m.subRedditRequest.subReddit = "/r/FastWorkers"
   m.subRedditRequest.observeField("state", "onSubRedditRequestContentChange")
   m.subRedditRequest.control = "RUN"
 end sub

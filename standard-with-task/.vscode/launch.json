@@ -8,7 +8,7 @@
             "rootDir": "${workspaceFolder}",
             "injectRdbOnDeviceComponent": true,
             "enableDebugProtocol": true,
-            "host": "10.0.0.6"
+            "host": "${promptForHost}"
         }
     ]
 }

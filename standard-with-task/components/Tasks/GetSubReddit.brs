@@ -63,8 +63,6 @@ sub createRowItems(json as object, listContent as object)
       if post.isVideo and postData.media.reddit_video <> invalid and postData.media.reddit_video.dash_url <> invalid then
         itemContent.url = postData.media.reddit_video.dash_url
         itemContent.streamformat = "dash"
-        'itemContent.url = "https://stream.mux.com/33zc2201HRcOd2SR9k5AnQ6jLS5t2UNDxqIuSC02x01Lh4.m3u8?default_subtitles_lang=en&roku_trick_play=true"
-        'itemContent.streamformat = "hls"
       else if postData.media <> invalid and postData.media.type = "youtube.com" then
         itemContent.url = postData.url
         itemContent.streamFormat = "youtube"
