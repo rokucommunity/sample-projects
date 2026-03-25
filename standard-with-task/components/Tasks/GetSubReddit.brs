@@ -1,8 +1,8 @@
 #const DEBUG = false
 
 sub init()
-  m.top.functionName = "fetch_bad"
-  ' m.top.functionName = "fetch_good"
+  'm.top.functionName = "fetch_bad"
+  m.top.functionName = "fetch_good"
 end sub
 
 ' This is an example of a function that is not mindful of rendezvous
@@ -42,7 +42,7 @@ sub createRowItems(json as object, listContent as object)
     postData = postDataContainer.data
     post = {
       title: postData.title,
-      selfText: postData.selfText,
+      author: postData.author,
       thumbnail: postData.thumbnail,
       isVideo: postData.is_video,
       url: postData.url,
@@ -53,26 +53,21 @@ sub createRowItems(json as object, listContent as object)
       itemContent = listContent.createChild("ContentNode")
       itemContent.update({ isSelf: post.isSelf }, true)
       itemContent.title = post.title
-      itemContent.description = post.selfText
+      itemContent.description = post.author
       itemContent.url = post.url
 
       if post.thumbnail <> "self" and post.thumbnail <> "default" and post.thumbnail <> "image" then
         itemContent.SDPosterUrl = post.thumbnail
       end if
 
-      if post.isVideo then
-        itemContent.url = post.url + "/DASHPlaylist.mpd"
+      if post.isVideo and postData.media.reddit_video <> invalid and postData.media.reddit_video.dash_url <> invalid then
+        itemContent.url = postData.media.reddit_video.dash_url
         itemContent.streamformat = "dash"
-      end if
-
-      if postData.media <> invalid and postData.media.type = "youtube.com" then
-        itemContent.videoUrl = postData.url
+        'itemContent.url = "https://stream.mux.com/33zc2201HRcOd2SR9k5AnQ6jLS5t2UNDxqIuSC02x01Lh4.m3u8?default_subtitles_lang=en&roku_trick_play=true"
+        'itemContent.streamformat = "hls"
+      else if postData.media <> invalid and postData.media.type = "youtube.com" then
+        itemContent.url = postData.url
         itemContent.streamFormat = "youtube"
-      end if
-
-      extension = right(postData.url, 4)
-      if extension = ".png" or extension = ".jpg" then
-        itemContent.SDPosterUrl = postData.url
       end if
 
       itemContent.update({
@@ -83,24 +78,24 @@ sub createRowItems(json as object, listContent as object)
 end sub
 
 function urlProxy(url as string)
-  #if DEBUG
-    if left(url, 4) <> "http" then return url
-    proxyAddress = "192.168.8.185:8888"
+  ' #if DEBUG
+  '   if left(url, 4) <> "http" then return url
+  '   proxyAddress = "192.168.8.185:8888"
 
-    if not url.inStr(proxyAddress) > -1 then
-      if url <> invalid and proxyAddress <> invalid
-        proxyPrefix = "http://" + proxyAddress + "/;"
-        currentUrl = url
+  '   if not url.inStr(proxyAddress) > -1 then
+  '     if url <> invalid and proxyAddress <> invalid
+  '       proxyPrefix = "http://" + proxyAddress + "/;"
+  '       currentUrl = url
 
-        if currentUrl.inStr(proxyPrefix) = 0 then
-          return url
-        end if
+  '       if currentUrl.inStr(proxyPrefix) = 0 then
+  '         return url
+  '       end if
 
-        proxyUrl = proxyPrefix + currentUrl
-        return proxyUrl
-      end if
-    end if
-  #end if
+  '       proxyUrl = proxyPrefix + currentUrl
+  '       return proxyUrl
+  '     end if
+  '   end if
+  ' #end if
 
   return url
 end function

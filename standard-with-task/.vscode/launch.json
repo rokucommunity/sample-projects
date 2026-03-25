@@ -6,9 +6,9 @@
             "request": "launch",
             "name": "BrightScript Debug: Launch",
             "rootDir": "${workspaceFolder}",
-            "host": "${promptForHost}",
             "injectRdbOnDeviceComponent": true,
-            "enableDebugProtocol": true
+            "enableDebugProtocol": true,
+            "host": "10.0.0.6"
         }
     ]
 }

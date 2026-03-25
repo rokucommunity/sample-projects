@@ -4,7 +4,7 @@
 
     <interface>
         <field id="itemContent" type="node" onChange="onItemContentChange" />
-        <field id = "focusPercent" type = "float" onChange = "onFocusPercentChange" />
+        <field id="focusPercent" type="float" onChange="onFocusPercentChange" />
         <field id="maxLabelWidth" alias="titleLabel.width, descriptionLabel.width" />
     </interface>
 
@@ -19,7 +19,7 @@
           />
         <Poster id="imagePoster" loadDisplayMode="scaleToFit" height="235" width="235" />
         <LayoutGroup id="labelGroup" itemSpacings="[20, 0]">
-            <Label id="titleLabel" font="font:LargeBoldSystemFont" />
+            <Label id="titleLabel" font="font:LargeSystemFont" />
             <Label id="descriptionLabel" wrap="true" maxLines="3" />
         </LayoutGroup>
     </children>

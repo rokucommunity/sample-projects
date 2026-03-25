@@ -1,4 +1,4 @@
-sub Main(inputArguments as object)
+sub Main(_inputArguments as object)
   screen = createObject("roSGScreen")
   m.port = createObject("roMessagePort")
   screen.setMessagePort(m.port)
