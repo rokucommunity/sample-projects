@@ -12,7 +12,9 @@ sub fetch_bad()
   request = createObject("roUrlTransfer")
   request.setCertificatesFile("common:/certs/ca-bundle.crt")
   request.initClientCertificates()
-  request.setUrl(urlProxy("https://www.reddit.com" + m.top.subReddit + "/.json"))
+  ' Reddit 403s requests from a Roku (the firmware User-Agent can't be overridden), so this
+  ' sample reads a captured snapshot of the subreddit's /.json response from a gist instead.
+  request.setUrl(urlProxy("https://gist.githubusercontent.com/TwitchBronBron/93b638fbe0911e9e9cc3be6818b330e1/raw/fast_workers.json"))
   response = request.getToString()
   json = parseJson(response)
 
@@ -28,7 +30,9 @@ sub fetch_good()
   request = createObject("roUrlTransfer")
   request.setCertificatesFile("common:/certs/ca-bundle.crt")
   request.initClientCertificates()
-  request.setUrl(urlProxy("https://www.reddit.com" + m.top.subReddit + "/.json"))
+  ' Reddit 403s requests from a Roku (the firmware User-Agent can't be overridden), so this
+  ' sample reads a captured snapshot of the subreddit's /.json response from a gist instead.
+  request.setUrl(urlProxy("https://gist.githubusercontent.com/TwitchBronBron/93b638fbe0911e9e9cc3be6818b330e1/raw/fast_workers.json"))
   response = request.getToString()
   json = parseJson(response)
 
